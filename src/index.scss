@@ -1,0 +1,15 @@
+$font-prefix: "~@ibm/plex";
+@import "~@ibm/plex/scss/ibm-plex.scss";
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans Thai', sans-serif !important;
+  font-weight: 400;
+  // -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

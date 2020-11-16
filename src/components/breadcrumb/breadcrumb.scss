@@ -1,0 +1,28 @@
+.breadcrumb {
+    height: 46px;
+    width: 100%;
+    background-color: rgb(39, 57, 124);
+
+    .container {
+        margin: auto;
+        height: 47px;
+        max-width: 1280px;
+        padding: 12px 32px;
+
+        color: white;
+        display: flex;
+
+        .normal {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .slash {
+            margin: 0 12px;
+        }
+
+        .selected {
+            font-weight: bold;
+        }
+    }
+}

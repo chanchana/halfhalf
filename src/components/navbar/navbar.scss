@@ -1,0 +1,72 @@
+.navbar {
+
+    height: 60;
+    background-color: #ffffff;
+    width: 100%;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+    
+        max-width: 1280px;
+        display: flex;
+    
+        .img-container {
+            padding: 10px 32px;
+    
+            img {
+                height: 40px;
+            }
+        }
+
+        .search-container {
+            flex-grow: 1;
+            margin-right: 32px;
+            
+            .input-group {
+                display: flex !important;
+                margin: 10px 0;
+                border-radius: .5rem!important;
+                
+                .select {
+                    width: 192px;
+                }
+                
+                .search-bar {
+                    flex-grow: 1;
+
+                }
+            }
+        }
+    }
+
+    
+    .ant-select-selector {
+        border-radius: .5rem 0 0 .5rem !important;
+    }
+    
+    .ant-select-auto-complete {
+        border-radius: 0 .5rem .5rem 0 !important;
+    
+        .ant-input-search-button {
+            border-radius: 0 .5rem .5rem 0 !important;
+            width: 62px !important;
+            border-left: none !important;
+            background-color: rgb(248, 248, 248);
+    
+            .anticon-search {
+                font-size: 14px !important;
+                color: rgba(0,0,0,.85) !important;
+            }
+        }
+    }
+    
+    input::placeholder {
+        font-size: 14px !important;
+    }
+
+    .ant-select-selection-item {
+        font-size: 14px !important;
+    }
+}
