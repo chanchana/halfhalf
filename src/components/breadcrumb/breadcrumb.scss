@@ -5,9 +5,8 @@
 
     .container {
         margin: auto;
-        height: 47px;
         max-width: 1280px;
-        padding: 12px 32px;
+        padding: 13px 32px;
 
         color: white;
         display: flex;
@@ -22,7 +21,7 @@
         }
 
         .selected {
-            font-weight: bold;
+            font-weight: 600;
         }
     }
 }
