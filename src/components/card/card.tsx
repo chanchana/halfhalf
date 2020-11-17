@@ -1,10 +1,8 @@
 import React from 'react'
 import { Tag } from 'antd'
-import { FacilityTag } from '../../components'
+import { FacilityTag, IScreen } from '../../components'
 
 import './card.scss'
-
-const imgSrc = "https://images.unsplash.com/photo-1597227772909-a6d166b48b79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
 
 const priceLabel = (level: number) => (
   <span>
@@ -13,29 +11,82 @@ const priceLabel = (level: number) => (
   </span>
 )
 
-export const Card = () => {
-  return (
-    <div className="card">
-      <div className="image-container">
-        <img src={imgSrc} />
+const openTag = (type: string | 'Y' | 'N' | 'N/A') => {
+  switch (type) {
+    case 'Y':
+      return <Tag className="tag" color="#1ac300">เปิดอยู่</Tag>
+    case 'N':
+      return <Tag className="tag" color="#a1a1a1">ปิดแล้ว</Tag>
+    default:
+      return <></>
+  }
+}
+
+
+interface ICardProp {
+  shopNameTH: string
+  categoryName: string
+  subcategoryName: string
+  coverImageId: string
+  facilities: string[]
+  priceLevel: number
+  isOpen: string | 'N/A' | 'N' | 'Y'
+  highlightText: string
+  recommendedItems: string[]
+  addressProvinceName: string
+  addressDistrictName: string
+  priceRange: string[]
+  screen: IScreen
+}
+
+export const Card = (prop: ICardProp) => {
+  const isRestaurant = prop.categoryName === 'ร้านอาหาร'
+
+  const screen = prop.screen
+
+  const detail = (
+    <div className="content-container">
+      <div className="title"><span>{prop.shopNameTH}{openTag(prop.isOpen)}</span></div>
+      <div className="subtitle-container">
+        <div className="text">{prop.categoryName}</div>
+        <div className="devider">|</div>
+        <div className="text">{ isRestaurant ? priceLabel(prop.priceLevel) : prop.priceRange[prop.priceLevel - 1] }</div>
+        <div className="devider">|</div>
+        <div className="text">{prop.addressDistrictName} {prop.addressProvinceName}</div>
       </div>
-      <div className="content-container">
-        <div className="title"><span>ชื่อร้าน</span><Tag className="tag" color="#1ac300">เปิดอยู่</Tag></div>
-        <div className="subtitle-container">
-          <p>ชื่อร้าน</p>
-          <div className="devider">|</div>
-          <p>{priceLabel(2)}</p>
-          <div className="devider">|</div>
-          <p>ชื่อร้าน</p>
-        </div>
-        <div className="horizontal-line" />
-        <p>ชื่อร้าน</p>
-        <div className="facilities">
-          <FacilityTag type="ที่จอดรถ" />
-          <FacilityTag type="รับจองล่วงหน้า" />
-          <FacilityTag type="สามารถนำสัตว์เลี้ยงเข้าได้" />
-        </div>
+      <div className="horizontal-line" />
+      <p style={{marginBottom: '8px'}} dangerouslySetInnerHTML={{__html: prop.highlightText}}></p>
+      <p style={{marginBottom: '8px'}} >
+        <span style={{fontWeight: 500, color:'#444444', marginRight: '8px'}}>{ isRestaurant ? 'เมนูแนะนำ:' : 'สินค้าแนะนำ:'}</span>
+        <span>{ prop.recommendedItems.join(', ') }</span>
+      </p>
+      <div className="facilities">
+        { prop.facilities.map((value) => (
+          <FacilityTag type={value}/>
+        ))}
       </div>
     </div>
+  )
+
+  return (
+    <>
+      { screen.isDesktop && 
+        <div className="card">
+          <div className="image-container">
+            <img src={prop.coverImageId} />
+          </div>
+          {detail}
+        </div>
+      }
+      { (screen.isTablet || screen.isMobile) && 
+        <div className="card-md">
+          <div className="image-container">
+            <img src={prop.coverImageId} />
+          </div>
+          {detail}
+        </div>
+      }
+
+    </>
   )
 } 

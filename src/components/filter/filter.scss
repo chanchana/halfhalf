@@ -9,42 +9,96 @@
     border-radius: 2px;
     margin-left: 1px;
     margin-right: 32px;
+    display: table;
+}
 
+
+
+.filter-modal {
+    // width: 100%;
+    // z-index: 50;
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    // overflow: scroll;
+    // bottom:0;
+
+    .header {
+        background-color: rgb(42, 67, 101);
+        font-size: 24px;
+        font-weight: 500;
+        height: 64px;
+        line-height: 22px;
+        text-align: center;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        z-index: 55;
+        width: 100%;
+
+        .arrow-icon {
+            position: absolute;
+            width: 64px;
+            height: 64px;
+            padding: 20px;
+            left: 0;
+            line-height: unset;
+
+        }
+    }
+    
+    .container {
+        padding: 104px 40px 40px;
+    }
+}
+
+
+.filter, .filter-modal {
     .text-header {
         margin-top: 32px;
         font-size: 16px;
         letter-spacing: -0.02em;
         font-weight: 600;
     }
-
+    
     .option-box {
         margin-top: 17px;
     }
-
+    
     .option-box-secondary {
         margin-top: 9px;
     }
-
+    
     .radio-select {
         display: block;
         height: 30px;
         line-height: 30px;
     }
-
+    
     .location-select {
         width: 100%;
     }
-
+    
     .price-dash {
         font-size: 14px;
         padding-top: 4px;
         margin: 0 7px;
         height: 28px;
     }
-
+    
     .button {
         margin-top: 8px;
         color: rgb(64, 169, 255);
         border-color: rgb(64, 169, 255);
     }
+}
+
+.ant-drawer-body {
+    padding: 0 !important;
+}
+
+.ant-drawer {
+    overflow: hidden;
 }

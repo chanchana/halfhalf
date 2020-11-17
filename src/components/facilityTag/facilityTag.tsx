@@ -8,7 +8,7 @@ import bookingImage from '../../assets/facilities/booking.png'
 import parkingImage from '../../assets/facilities/parking.png'
 
 interface IFacilityTagProp {
-  type: 'ที่จอดรถ' | 'สามารถนำสัตว์เลี้ยงเข้าได้' | 'รับจองล่วงหน้า'
+  type: string | 'ที่จอดรถ' | 'สามารถนำสัตว์เลี้ยงเข้าได้' | 'รับจองล่วงหน้า'
 }
 
 export const FacilityTag = (prop: IFacilityTagProp) => {

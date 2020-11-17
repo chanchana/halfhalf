@@ -3,6 +3,7 @@
     width: 100%;
     background-color: white;
     margin-bottom: 12px;
+    border: 1px solid rgb(201, 225, 233);
 
     display: flex;
 
@@ -19,75 +20,73 @@
         }
     }
 
-    .content-container {
-        flex-grow: 1;
-        padding: 16px;
+}
 
-        .title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 0;
-            height: 33px;
+.content-container {
+    flex-grow: 1;
+    padding: 16px;
+
+    .title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 0;
+        height: 33px;
+    }
+
+    .tag {
+        margin: 0 8px 0 16px;
+        padding: 2px 8px 0px;
+    }
+
+    .subtitle-container {
+        
+
+        display: block;
+        font-size: 14px;
+        color: rgb(153, 153, 153);
+
+        .text {
+            display: inline-block;
         }
 
-        .tag {
-            margin: 0 8px 0 16px;
-            padding: 2px 8px 0px;
-        }
-
-        .subtitle-container {
-            
-
-            display: flex;
-            font-size: 14px;
-            color: rgb(153, 153, 153);
-
-            // .text {
-            // }
-
-            .devider {
-                margin: 0 12px;
-            }
-        }
-
-        .horizontal-line {
-            height: 1px;
-            margin: 18px 0;
-            background-color: rgb(238, 238, 238);
-            width: 65%;
-        }
-
-        p {
-            font-size: 14px;
-            color: rgb(153, 153, 153);
-            margin-bottom: 0;
-        }
-
-        .facilities {
-            margin: 24px 0 16px 0;
-            display: flex;
+        .devider {
+            display: inline-block;
+            margin: 0 12px;
         }
     }
 
-    // .container {
-    //     margin: auto;
-    //     max-width: 1280px;
-    //     padding: 13px 32px;
+    .horizontal-line {
+        height: 1px;
+        margin: 18px 0;
+        background-color: rgb(238, 238, 238);
+        width: 65%;
+    }
 
-    //     color: white;
-    //     display: flex;
+    p {
+        font-size: 14px;
+        color: rgb(153, 153, 153);
+        margin-bottom: 0;
+    }
 
-    //     .normal {
-    //         color: white;
-    //         text-decoration: underline;
-    //     }
+    .facilities {
+        margin: 16px 0;
+        display: flex;
+    }
+}
 
-    //     .slash {
-    //         margin: 0 12px;
-    //     }
+.card-md {
+    width: 100%;
+    background-color: white;
+    margin-bottom: 12px;
+    border: 1px solid rgb(201, 225, 233);
 
-    //     .selected {
-    //         font-weight: 600;
-    //     }
-    // }
+    .image-container {
+        height: 224px;
+
+        img {
+            width: 100%;
+            height: 224px;
+            object-fit: cover;
+        }
+    }
 }

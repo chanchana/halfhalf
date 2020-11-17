@@ -8,6 +8,10 @@
         max-width: 1280px;
         padding: 13px 32px;
 
+        &.m {
+            padding: 13px 16px;
+        }
+
         color: white;
         display: flex;
 
