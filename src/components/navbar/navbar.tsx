@@ -58,7 +58,7 @@ export const Navbar = (prop: INavbarProp) => {
     </div>
   )
 
-  const options = prop.categories.map(({ name }) => ({ value: name, label: (<span onClick={() => {prop.setCategoryCallback(name)}}><span style={{width: '1rem', marginRight: '0.5rem'}}>{name === 'ร้านธงฟ้า' ? icons.shop : icons.food}</span> {name}</span>)}))
+  const options = prop.categories.map(({ name }) => ({ value: name, label: (<div onClick={() => {prop.setCategoryCallback(name)}}><span><span style={{width: '1rem', marginRight: '0.5rem'}}>{name === 'ร้านธงฟ้า' ? icons.shop : icons.food}</span> {name}</span></div>)}))
 
 
   return (
