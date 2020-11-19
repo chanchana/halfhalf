@@ -1,20 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import './search.scss'
 import { merchantService, IMerchant } from '../../services/merchants'
-
 import { Navbar, Breadcrumb, Filter, Card } from '../../components'
-
 import { getQuery, makeQuery } from '../../utils'
 
-// import { useQuery } from 'react-router-dom'
-
-interface ISearchProp {
-}
-
-export const Search = (prop: ISearchProp) => {
+export const Search = () => {
 
   const [data, setData] = useState<IMerchant>()
-
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false)
 
   const query = getQuery()
@@ -27,10 +19,6 @@ export const Search = (prop: ISearchProp) => {
   const [subCategory, setSubCategory] = useState(query.subCategory as string ?? 'all')
   const [search, setSearch] = useState(query.search as string)
 
-
-  // const params = useQuery()
-  // console.log(params)
-
   useEffect(() => {
     merchantService.get().then((result) => {
       console.log(result)
@@ -39,10 +27,9 @@ export const Search = (prop: ISearchProp) => {
   }, [])
 
   useEffect(() => {
-    const queryString = makeQuery(states)
+    const queryString = makeQuery({ category, location, priceLevel, priceStart, priceTo, subCategory, search })
     window.history.pushState({}, '', `/search?${queryString}`)
   }, [category, location, priceLevel, priceStart, priceTo, subCategory, search])
-
 
   const setCategoryCallback = useCallback((value) => {
     setCategory(value)
@@ -97,7 +84,7 @@ export const Search = (prop: ISearchProp) => {
     setSearch,
   }
 
-  console.log(states)
+  // console.log(states)
 
   return (
     <div className="search">
@@ -113,7 +100,7 @@ export const Search = (prop: ISearchProp) => {
               <Filter isModalOpen={isFilterModalOpen} setIsModalOpenCallback={setIsFilterModalOpenCallback} categories={data.categories} priceRange={data.priceRange} provinces={data.provinces} {...callbacks} {...states} />
               <div className="result">
                 {data.merchants.map((merchant) => (
-                  <Card {...merchant} priceRange={data.priceRange} />
+                  <Card key={merchant.shopNameTH} {...merchant} priceRange={data.priceRange} />
                 ))}
               </div>
             </div>

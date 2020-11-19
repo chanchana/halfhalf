@@ -1,9 +1,7 @@
 import React from 'react'
 import { Tag } from 'antd'
 import { FacilityTag } from '../../components'
-
 import { useScreen } from '../../utils'
-
 import './card.scss'
 
 const priceLabel = (level: number) => (
@@ -24,7 +22,6 @@ const openTag = (type: string | 'Y' | 'N' | 'N/A') => {
   }
 }
 
-
 interface ICardProp {
   shopNameTH: string
   categoryName: string
@@ -41,10 +38,9 @@ interface ICardProp {
 }
 
 export const Card = (prop: ICardProp) => {
+
   const isRestaurant = prop.categoryName === 'ร้านอาหาร'
-
   const screen = useScreen()
-
 
   const detail = (
     <div className="content-container">
@@ -64,7 +60,7 @@ export const Card = (prop: ICardProp) => {
       </p>
       <div className="facilities">
         { prop.facilities.map((value) => (
-          <FacilityTag type={value}/>
+          <FacilityTag key={value} type={value}/>
         ))}
       </div>
     </div>
@@ -75,7 +71,7 @@ export const Card = (prop: ICardProp) => {
       { screen.isDesktop && 
         <div className="card">
           <div className="image-container">
-            <img src={prop.coverImageId} />
+            <img src={prop.coverImageId} alt="Cover" />
           </div>
           {detail}
         </div>
@@ -83,12 +79,11 @@ export const Card = (prop: ICardProp) => {
       { (screen.isTablet || screen.isMobile) && 
         <div className="card-md">
           <div className="image-container">
-            <img src={prop.coverImageId} />
+            <img src={prop.coverImageId} alt="Cover" />
           </div>
           {detail}
         </div>
       }
-
     </>
   )
 } 

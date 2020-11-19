@@ -3,25 +3,14 @@
     padding: 16px;
     width: 350px;
     box-sizing: border-box;
-    // border: inset solid 1px rgb(163, 174, 190);
     outline: 1px solid rgb(163, 174, 190);
-    // border-width: 1px;
     border-radius: 2px;
     margin-left: 1px;
     margin-right: 32px;
     display: table;
 }
 
-
-
 .filter-modal {
-    // width: 100%;
-    // z-index: 50;
-    // position: fixed;
-    // top: 0;
-    // left: 0;
-    // overflow: scroll;
-    // bottom:0;
 
     .header {
         background-color: rgb(42, 67, 101);
@@ -53,7 +42,6 @@
         padding: 104px 40px 40px;
     }
 }
-
 
 .filter, .filter-modal {
     .text-header {

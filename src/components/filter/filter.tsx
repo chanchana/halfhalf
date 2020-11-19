@@ -1,18 +1,10 @@
 import React, { useState } from 'react'
-import './filter.scss'
-import { Menu, Dropdown, Button, message, Tooltip, Drawer } from 'antd';
-
-import { DownOutlined, UserOutlined } from '@ant-design/icons';
-
-import { Col, Row, Select, InputNumber, DatePicker, AutoComplete, Cascader } from 'antd'
-import { AudioOutlined } from '@ant-design/icons';
-import { Radio, Input } from 'antd';
-
+import { Button, Drawer, Select, InputNumber, Radio } from 'antd'
 import { ProvinceSelect } from '../../components'
 import { useScreen, icons } from '../../utils'
+import './filter.scss'
 
 const { Option } = Select
-const { Search } = Input
 
 interface IFilterProp {
   isModalOpen: boolean
@@ -38,7 +30,6 @@ interface IFilterProp {
 
 }
 
-
 export const Filter = (prop: IFilterProp) => {
 
   const screen = useScreen()
@@ -58,26 +49,6 @@ export const Filter = (prop: IFilterProp) => {
     prop.setPriceStartCallback(priceStart)
     prop.setPriceToCallback(priceTo)
   }
-  // onChange = e => {
-  //   console.log('radio checked', e.target.value);
-  //   this.setState({
-  //     value: e.target.value,
-  //   });
-  // };
-
-  // const menu = (
-  //   <Menu onClick={() => { }}>
-  //     <Menu.Item key="1" icon={<UserOutlined />}>
-  //       1st menu item
-  //     </Menu.Item>
-  //     <Menu.Item key="2" icon={<UserOutlined />}>
-  //       2nd menu item
-  //     </Menu.Item>
-  //     <Menu.Item key="3" icon={<UserOutlined />}>
-  //       3rd menu item
-  //     </Menu.Item>
-  //   </Menu>
-  // )
 
   const filterArea = (
     <>
@@ -86,7 +57,7 @@ export const Filter = (prop: IFilterProp) => {
         <Radio.Group onChange={(e) => {prop.setCategoryCallback(e.target.value)}} value={prop.category}>
           <Radio className="radio-select" value="all">ทั้งหมด</Radio>
           {prop.categories.map(({ name }) =>
-            <Radio className="radio-select" value={name}>{name}</Radio>
+            <Radio key={name} className="radio-select" value={name}>{name}</Radio>
           )}
         </Radio.Group>
       </div>
@@ -96,7 +67,6 @@ export const Filter = (prop: IFilterProp) => {
         <ProvinceSelect className="location-select" value={prop.location} provinces={prop.provinces} onChangeCallback={prop.setLocationCallback} />
       </div>
 
-
       { prop.category === 'ร้านอาหารและเครื่องดื่ม' ?
         <>
           <div className="text-header" style={{ marginTop: '33px' }}>ราคา</div>
@@ -104,7 +74,7 @@ export const Filter = (prop: IFilterProp) => {
             <Select defaultValue={0} value={prop.priceLevel} className="location-select" onChange={prop.setPriceLevelCallback}>
               <Option value={0}>ทั้งหมด</Option>
               {prop.priceRange.map((value, index) => (
-                <Option value={index + 1}>{value}</Option>
+                <Option key={value} value={index + 1}>{value}</Option>
               ))}
             </Select>
           </div>
@@ -132,7 +102,7 @@ export const Filter = (prop: IFilterProp) => {
             <Radio.Group onChange={(e) => {prop.setSubCategoryCallback(e.target.value)}} value={prop.subCategory}>
               <Radio className="radio-select" value="all">ทั้งหมด</Radio>
               {prop.categories.find(({ name }) => name === prop.category)?.subcategories.map((value) => (
-                <Radio className="radio-select" value={value}>{value}</Radio>
+                <Radio key={value} className="radio-select" value={value}>{value}</Radio>
               ))}
             </Radio.Group>
           </div>
@@ -142,8 +112,6 @@ export const Filter = (prop: IFilterProp) => {
   )
 
   const modal = (
-
-    // <div className="filter-modal">
     <Drawer visible={prop.isModalOpen} className="filter-modal" width="100%" closable={false}>
       <div>
         <div className="header">
@@ -157,7 +125,6 @@ export const Filter = (prop: IFilterProp) => {
         </div>
       </div>
     </Drawer>
-    // </div>
   )
 
   return (

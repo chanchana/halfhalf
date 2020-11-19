@@ -1,18 +1,11 @@
 import React from 'react'
-import './navbar.scss'
 import logo from '../../assets/logo.png'
 import logoMini from '../../assets/logo-mini.png'
 import filterImage from '../../assets/filter.png'
-
-import { Input, Col, Row, Select, InputNumber, DatePicker, AutoComplete, Cascader } from 'antd'
-import { AudioOutlined } from '@ant-design/icons';
-
+import { Input, AutoComplete } from 'antd'
 import { ProvinceSelect } from '../../components'
-
 import { useScreen , icons} from '../../utils'
-
-const { Option } = AutoComplete
-const { Search } = Input
+import './navbar.scss'
 
 interface INavbarProp {
   provinces: string[]
@@ -28,44 +21,28 @@ interface INavbarProp {
   setCategoryCallback(value: any): void
 }
 
-// const renderLabel = (name: string) => {
-
-// }
-
 export const Navbar = (prop: INavbarProp) => {
 
   const screen = useScreen()
-
-  // const options = [
-  //   {
-  //     label: renderTitle('Libraries'),
-  //     options: [renderItem('AntDesign', 10000), renderItem('AntDesign UI', 10600)],
-  //   },
-  //   {
-  //     label: renderTitle('Solutions'),
-  //     options: [renderItem('AntDesign UI FAQ', 60100), renderItem('AntDesign FAQ', 30010)],
-  //   },
-  //   {
-  //     label: renderTitle('Articles'),
-  //     options: [renderItem('AntDesign design language', 100000)],
-  //   },
-  // ];
-  
   
   const filterButton = (
     <div className="filter-icon" onClick={() => {prop.setIsFilterModalOpenCallback(true)}}>
-      <img src={filterImage} />
+      <img src={filterImage} alt="Filter Icon" />
     </div>
   )
 
-  const options = prop.categories.map(({ name }) => ({ value: name, label: (<div onClick={() => {prop.setCategoryCallback(name)}}><span><span style={{width: '1rem', marginRight: '0.5rem'}}>{name === 'ร้านธงฟ้า' ? icons.shop : icons.food}</span> {name}</span></div>)}))
-
+  const options = prop.categories.map(({ name }) => ({ value: name, label: (
+    <div key={name} onClick={() => {prop.setCategoryCallback(name)}}>
+      <span style={{width: '1rem', marginRight: '0.5rem'}}>{name === 'ร้านธงฟ้า' ? icons.shop : icons.food}</span> 
+      <span>{name}</span>
+    </div>)}
+  ))
 
   return (
     <div className="navbar">
       <div className="container">
         <div className={`img-container ${screen.isMobile ? 'm' : ''}`}>
-          <img src={screen.isMobile ? logoMini : logo} />
+          <img src={screen.isMobile ? logoMini : logo} alt="Logo" />
         </div>
         <div className={`search-container ${screen.isMobile ? 'm' : ''}`}>
           <Input.Group size="large" className="input-group" compact>

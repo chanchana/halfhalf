@@ -1,5 +1,4 @@
 .navbar {
-
     height: 60;
     background-color: #ffffff;
     width: 100%;
@@ -8,12 +7,10 @@
         display: flex;
         justify-content: space-between;
         margin: 0 auto;
-    
         max-width: 1280px;
         display: flex;
     
         .img-container {
-            
             padding: 10px 32px;
             
             &.m {
@@ -44,7 +41,6 @@
                 
                 .search-bar {
                     flex-grow: 1;
-
                 }
             }
         }
