@@ -4,6 +4,8 @@ import './App.css';
 
 import { useMediaQuery } from 'react-responsive'
 
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
 import { Search } from './pages'
 
 function App() {
@@ -47,25 +49,17 @@ function App() {
 
 
   return (
-    <div>
-      {/* {isDesktop && <p>D</p>} {isTablet && <p>T</p>} {isMobile && <p>M</p>} */}
-      <Search screen={screen} />
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-    </div>
-  );
+      <Router> 
+        <Switch>
+          <Route exact path="/search" component={Search} />
+          {/* <Route exact path="/sholarships/:id" component={ScholarshipDetail} />
+          <Route exact path="/student/allScholar" component={AllScholar} />
+          <Route exact path="/student/trackStatus" component={TrackStatus} />
+          <Route exact path="/funder/offerScholar" component={OfferScholar} />
+          <Route exact path="/funder/offerScholar/create" component={CreateOffer} /> */}
+        </Switch>
+      </Router>
+  )
 }
 
 export default App;

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Tag } from 'antd'
-import { FacilityTag, IScreen } from '../../components'
+import { FacilityTag } from '../../components'
+
+import { useScreen } from '../../utils'
 
 import './card.scss'
 
@@ -36,13 +38,13 @@ interface ICardProp {
   addressProvinceName: string
   addressDistrictName: string
   priceRange: string[]
-  screen: IScreen
 }
 
 export const Card = (prop: ICardProp) => {
   const isRestaurant = prop.categoryName === 'ร้านอาหาร'
 
-  const screen = prop.screen
+  const screen = useScreen()
+
 
   const detail = (
     <div className="content-container">

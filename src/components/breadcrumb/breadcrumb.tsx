@@ -1,15 +1,16 @@
 import React from 'react'
 
-import { IScreen } from '../../components'
+import { useScreen } from '../../utils'
 
 import './breadcrumb.scss'
 
 interface IBreadcrumbProp {
-  screen: IScreen
 }
 
 export const Breadcrumb = (prop: IBreadcrumbProp) => {
-  const screen = prop.screen
+
+  const screen = useScreen()
+
   return (
     <div className="breadcrumb">
       <div className={`container ${screen.isMobile ? 'm' : ''}`}>
