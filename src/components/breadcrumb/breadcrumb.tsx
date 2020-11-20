@@ -27,10 +27,10 @@ export const Breadcrumb = (prop: IBreadcrumbProp) => {
       <div className={`container ${screen.isMobile ? 'm' : ''}`}>
         <div onClick={() => {handleLink('/')}} className="normal">หน้าแรก</div>
         {prop.links.map(({ label, url, isSelected }) => (
-          <>
+          <div style={{display: 'flex'}} key={label}>
             <div className="slash">/</div>
             <div {...!isSelected && {onClick: () => {handleLink(url)}}} className={isSelected ? 'selected' : 'normal'}>{label}</div>
-          </>
+          </div>
         ))}
       </div>
     </div>

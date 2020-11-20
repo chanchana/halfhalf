@@ -14,6 +14,11 @@ interface INavbarProp {
 export const Navbar = (prop: INavbarProp) => {
 
   const screen = useScreen()
+
+  const handleHomePage = () => {
+    window.history.pushState({}, '', `#/`)
+    window.location.reload()
+  }
   
   const filterButton = (
     <div className="filter-icon" onClick={() => {prop.setIsFilterModalOpenCallback!(true)}}>
@@ -24,7 +29,7 @@ export const Navbar = (prop: INavbarProp) => {
   return (
     <div className="navbar">
       <div className="container">
-        <div className={`img-container ${screen.isMobile ? 'm' : ''}`}>
+        <div onClick={handleHomePage} className={`img-container ${screen.isMobile ? 'm' : ''}`}>
           <img src={screen.isMobile ? logoMini : logo} alt="Logo" />
         </div>
         {prop.children && prop.children }

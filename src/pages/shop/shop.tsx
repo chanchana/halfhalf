@@ -77,7 +77,7 @@ export const Shop = () => {
 
       <div className="title">สิ่งอำนวยความสะดวก</div>
       {merchant && merchant.facilities.map((value) => (
-        <div className="detail-container">
+        <div key={value} className="detail-container">
           <div className="icon">{icons.check}</div>
           <div>{value}</div>
         </div>
@@ -114,7 +114,7 @@ export const Shop = () => {
                   <div className="detail" dangerouslySetInnerHTML={{__html: merchant.highlightText}}></div>
                   <div className="title-header">{ isRestaurant ? 'เมนูแนะนำ' : 'สินค้าแนะนำ'}</div>
                   {merchant.recommendedItems.map((value) => (
-                    <div className="tag">{value}</div>
+                    <div key={value} className="tag">{value}</div>
                   ))}
                 </div>
                 { screen.isMobile && 

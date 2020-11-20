@@ -16,6 +16,7 @@ interface ISearchBarProp {
   setSearchCallback(value: any): void
   setCategoryCallback(value: any): void
   onEnter?(e: any): void
+  large?: boolean
 }
 
 export const SearchBar = (prop: ISearchBarProp) => {
@@ -30,7 +31,7 @@ export const SearchBar = (prop: ISearchBarProp) => {
   ))
 
   return (
-    <div className={`search-container ${screen.isMobile ? 'm' : ''}`}>
+    <div className={`search-container ${screen.isMobile ? 'm' : ''} ${prop.large ? 'l' : ''}`}>
       <Input.Group size="large" className="input-group" compact>
         {!screen.isMobile && <ProvinceSelect value={prop.location} size="large" className="select" provinces={prop.provinces} onChangeCallback={prop.setLocationCallback} />}
         <AutoComplete id={screen.isMobile ? 'm' : 'td'} value={prop.search} className="search-bar" options={options}>

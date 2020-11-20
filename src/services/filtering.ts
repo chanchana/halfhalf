@@ -29,7 +29,7 @@ const getPriceLevels = (priceStart?: number, priceTo?: number): number[] => {
     }
     const startLevel = getLevel(priceStart, 1) 
     const toLevel = getLevel(priceTo, 4)
-    const levels = []
+    const levels: number[] = []
     for (let i = startLevel; i <= toLevel; i++) {
         levels.push(i)
     }
