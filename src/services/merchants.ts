@@ -244,11 +244,7 @@ const testFetch = {
 }
 
 const get = (): Promise<void | IData> => {
-  return axios.get('https://panjs.com/ywc18.json', {
-    headers: {
-      'Access-Control-Allow-Origin': '*'
-    }
-  }).then((result) => {
+  return axios.get('https://panjs.com/ywc18.json').then((result) => {
     return result.data
   }).catch((error) => {
     console.log(error)

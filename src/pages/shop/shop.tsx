@@ -117,9 +117,11 @@ export const Shop = () => {
                     <div className="tag">{value}</div>
                   ))}
                 </div>
-                <div className="box">
-                  {detail}
-                </div>
+                { screen.isMobile && 
+                  <div className="box">
+                    {detail}
+                  </div>
+                }
               </div>
               { !screen.isMobile && 
                 <div className="side-area">
