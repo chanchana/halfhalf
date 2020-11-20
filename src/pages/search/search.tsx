@@ -2,10 +2,12 @@ import React, { useState, useEffect, useCallback } from 'react'
 import './search.scss'
 import { merchantService, IData, IMerchant } from '../../services/merchants'
 import { filter } from '../../services/filtering'
-import { Navbar, Breadcrumb, Filter, Card } from '../../components'
-import { getQuery, makeQuery } from '../../utils'
+import { Navbar, Breadcrumb, Filter, Card, SearchBar } from '../../components'
+import { getQuery, makeQuery, useScreen } from '../../utils'
 
 export const Search = () => {
+
+  const screen = useScreen()
 
   const [data, setData] = useState<IData>()
   const [merchants, setMerchants] = useState<IMerchant[]>()
@@ -96,7 +98,7 @@ export const Search = () => {
 
   const notFound = (
     <div className="not-found">
-      <div className="title">ไม่พบสถานที่ที่คุณกำลังหา</div>
+      <div className={`title ${screen.isMobile ? 'm' : ''}`}>ไม่พบสถานที่ที่คุณกำลังหา</div>
       <div className="sub-title">ร้านค้าที่ท่านค้นหาอาจไม่ได้เข้าร่วมโครงการ คนละครึ่ง</div>
     </div>
   )
@@ -105,8 +107,10 @@ export const Search = () => {
     <div className="search">
       { data &&
         <>
-          <Navbar provinces={data.provinces} location={location} setLocationCallback={setLocationCallback} setIsFilterModalOpenCallback={setIsFilterModalOpenCallback} search={search} setSearchCallback={setSearchCallback} categories={data.categories} setCategoryCallback={setCategoryCallback} />
-          <Breadcrumb />
+          <Navbar showFilterButtonOnMobile setIsFilterModalOpenCallback={setIsFilterModalOpenCallback} >
+            <SearchBar provinces={data.provinces} location={location} setLocationCallback={setLocationCallback} search={search} setSearchCallback={setSearchCallback} categories={data.categories} setCategoryCallback={setCategoryCallback} />
+          </Navbar>
+          <Breadcrumb links={[{ label: 'ค้นหา', url: '/search', isSelected: true }]} />
           <div className="content">
             <div className="title">
               ผลการค้นหา{category !== 'all' && ` ${category}${search ? `, ${search} ` : ' '}`}ทั้งหมด
@@ -115,7 +119,7 @@ export const Search = () => {
               <Filter isModalOpen={isFilterModalOpen} setIsModalOpenCallback={setIsFilterModalOpenCallback} categories={data.categories} priceRange={data.priceRange} provinces={data.provinces} {...callbacks} {...states} />
               <div className="result">
                 { merchants ? (merchants.length > 0 ? merchants.map((merchant) => (
-                      <Card key={merchant.shopNameTH} {...merchant} priceRange={data.priceRange} />
+                      <Card key={merchant.shopNameTH} shopId={merchant.shopNameTH} {...merchant} priceRange={data.priceRange} />
                     ))
                     :
                     notFound

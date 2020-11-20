@@ -1,17 +1,17 @@
 import React from 'react'
 import { Tag } from 'antd'
 import { FacilityTag } from '../../components'
-import { useScreen } from '../../utils'
+import { useScreen, getQueryString } from '../../utils'
 import './card.scss'
 
-const priceLabel = (level: number) => (
+export const priceLabel = (level: number) => (
   <span>
     <span style={{color: 'black'}}>{'฿'.repeat(level)}</span>
     <span>{'฿'.repeat(4 - level)}</span>
   </span>
 )
 
-const openTag = (type: string | 'Y' | 'N' | 'N/A') => {
+export const openTag = (type: string | 'Y' | 'N' | 'N/A') => {
   switch (type) {
     case 'Y':
       return <Tag className="tag" color="#1ac300">เปิดอยู่</Tag>
@@ -23,6 +23,7 @@ const openTag = (type: string | 'Y' | 'N' | 'N/A') => {
 }
 
 interface ICardProp {
+  shopId: string
   shopNameTH: string
   categoryName: string
   subcategoryName: string
@@ -41,6 +42,12 @@ export const Card = (prop: ICardProp) => {
 
   const isRestaurant = prop.categoryName === 'ร้านอาหาร'
   const screen = useScreen()
+
+  const handleCardClick = () => {
+    console.log(prop.shopId)
+    window.history.pushState({}, '', `#/shop/${prop.shopId}?${getQueryString()}`)
+    window.location.reload()
+  }
 
   const detail = (
     <div className="content-container">
@@ -67,7 +74,7 @@ export const Card = (prop: ICardProp) => {
   )
 
   return (
-    <>
+    <div onClick={handleCardClick}>
       { screen.isDesktop && 
         <div className="card">
           <div className="image-container">
@@ -84,6 +91,6 @@ export const Card = (prop: ICardProp) => {
           {detail}
         </div>
       }
-    </>
+    </div>
   )
 } 
