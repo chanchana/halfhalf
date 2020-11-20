@@ -1,27 +1,29 @@
 {
   "files": {
-    "main.css": "/halfhalf/static/css/main.602af6d1.chunk.css",
-    "main.js": "/halfhalf/static/js/main.ec9ee9a9.chunk.js",
-    "main.js.map": "/halfhalf/static/js/main.ec9ee9a9.chunk.js.map",
-    "runtime-main.js": "/halfhalf/static/js/runtime-main.43d7aab1.js",
-    "runtime-main.js.map": "/halfhalf/static/js/runtime-main.43d7aab1.js.map",
+    "main.css": "/halfhalf/static/css/main.7860bfe3.chunk.css",
+    "main.js": "/halfhalf/static/js/main.a5ccb31a.chunk.js",
+    "main.js.map": "/halfhalf/static/js/main.a5ccb31a.chunk.js.map",
+    "runtime-main.js": "/halfhalf/static/js/runtime-main.00f8c195.js",
+    "runtime-main.js.map": "/halfhalf/static/js/runtime-main.00f8c195.js.map",
     "static/css/2.2c69b29f.chunk.css": "/halfhalf/static/css/2.2c69b29f.chunk.css",
-    "static/js/2.5e968b6b.chunk.js": "/halfhalf/static/js/2.5e968b6b.chunk.js",
-    "static/js/2.5e968b6b.chunk.js.map": "/halfhalf/static/js/2.5e968b6b.chunk.js.map",
-    "static/js/3.47563a47.chunk.js": "/halfhalf/static/js/3.47563a47.chunk.js",
-    "static/js/3.47563a47.chunk.js.map": "/halfhalf/static/js/3.47563a47.chunk.js.map",
+    "static/js/2.8569141f.chunk.js": "/halfhalf/static/js/2.8569141f.chunk.js",
+    "static/js/2.8569141f.chunk.js.map": "/halfhalf/static/js/2.8569141f.chunk.js.map",
+    "static/js/3.1c1bcad4.chunk.js": "/halfhalf/static/js/3.1c1bcad4.chunk.js",
+    "static/js/3.1c1bcad4.chunk.js.map": "/halfhalf/static/js/3.1c1bcad4.chunk.js.map",
     "index.html": "/halfhalf/index.html",
     "static/css/2.2c69b29f.chunk.css.map": "/halfhalf/static/css/2.2c69b29f.chunk.css.map",
-    "static/css/main.602af6d1.chunk.css.map": "/halfhalf/static/css/main.602af6d1.chunk.css.map",
-    "static/js/2.5e968b6b.chunk.js.LICENSE.txt": "/halfhalf/static/js/2.5e968b6b.chunk.js.LICENSE.txt",
+    "static/css/main.7860bfe3.chunk.css.map": "/halfhalf/static/css/main.7860bfe3.chunk.css.map",
+    "static/js/2.8569141f.chunk.js.LICENSE.txt": "/halfhalf/static/js/2.8569141f.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/halfhalf/static/media/IBMPlexSerif-ThinItalic.fd38eb68.woff",
-    "static/media/shop.scss": "/halfhalf/static/media/background.ac869927.png"
+    "static/media/shop.scss": "/halfhalf/static/media/background.ac869927.png",
+    "static/media/bg-half-search.0bd84a91.png": "/halfhalf/static/media/bg-half-search.0bd84a91.png",
+    "static/media/home.scss": "/halfhalf/static/media/map-background.015afe51.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.43d7aab1.js",
+    "static/js/runtime-main.00f8c195.js",
     "static/css/2.2c69b29f.chunk.css",
-    "static/js/2.5e968b6b.chunk.js",
-    "static/css/main.602af6d1.chunk.css",
-    "static/js/main.ec9ee9a9.chunk.js"
+    "static/js/2.8569141f.chunk.js",
+    "static/css/main.7860bfe3.chunk.css",
+    "static/js/main.a5ccb31a.chunk.js"
   ]
 }
