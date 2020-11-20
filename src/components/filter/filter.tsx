@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Drawer, Select, InputNumber, Radio } from 'antd'
 import { ProvinceSelect } from '../../components'
 import { useScreen, icons } from '../../utils'
@@ -27,7 +27,6 @@ interface IFilterProp {
   setPriceStartCallback(value: any): void
   setPriceToCallback(value: any): void
   setSubCategoryCallback(value: any): void
-
 }
 
 export const Filter = (prop: IFilterProp) => {
@@ -36,6 +35,11 @@ export const Filter = (prop: IFilterProp) => {
 
   const [priceStart, setPriceStart] = useState(prop.priceStart)
   const [priceTo, setPriceTo] = useState(prop.priceTo)
+
+  useEffect(() => {
+    setPriceStart(prop.priceStart)
+    setPriceTo(prop.priceTo)
+  }, [prop.priceStart, prop.priceTo, prop.category])
 
   const handleSetPriceStart = (value: any) => {
     setPriceStart(value)
@@ -84,9 +88,9 @@ export const Filter = (prop: IFilterProp) => {
           <div className="text-header" style={{ marginTop: '33px' }}>ช่วงราคาสินค้า (บาท)</div>
           <div className="option-box-secondary">
             <div className="price-range-select" style={{ display: 'flex' }}>
-              <InputNumber style={{ flexGrow: 1 }} min={0} placeholder="ราคาต่ำสุด" {...prop.priceStart && {defaultValue: prop.priceStart}} onChange={handleSetPriceStart} />
+              <InputNumber style={{ flexGrow: 1 }} min={0} placeholder="ราคาต่ำสุด" value={priceStart} onChange={handleSetPriceStart} />
               <div className="price-dash">-</div>
-              <InputNumber style={{ flexGrow: 1 }} min={0} placeholder="ราคาสูงสุด" {...prop.priceTo && {defaultValue: prop.priceTo}} onChange={handleSetPriceTo} />
+              <InputNumber style={{ flexGrow: 1 }} min={0} placeholder="ราคาสูงสุด" value={priceTo} onChange={handleSetPriceTo} />
             </div>
 
             <Button block type="ghost" className="button" onClick={handleUpdatePriceRange}>ตกลง</Button>

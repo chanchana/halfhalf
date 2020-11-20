@@ -1,23 +1,26 @@
 export interface IMerchant {
+  shopNameTH: string
+  filterCategoryName?: string
+  categoryName: string
+  subcategoryName: string
+  coverImageId: string
+  facilities: string[]
+  priceLevel: number
+  isOpen: string | 'N/A' | 'N' | 'Y'
+  highlightText: string
+  recommendedItems: string[]
+  addressProvinceName: string
+  addressDistrictName: string
+}
+
+export interface IData {
   categories: {
     name: string
     subcategories: string[]
   }[]
   provinces: string[]
   priceRange: string[]
-  merchants: {
-    shopNameTH: string
-    categoryName: string
-    subcategoryName: string
-    coverImageId: string
-    facilities: string[]
-    priceLevel: number
-    isOpen: string | 'N/A' | 'N' | 'Y'
-    highlightText: string
-    recommendedItems: string[]
-    addressProvinceName: string
-    addressDistrictName: string
-  }[]
+  merchants: IMerchant[]
 }
 
 const testFetch = {
@@ -238,7 +241,7 @@ const testFetch = {
   ]
 }
 
-const get = (): Promise<void | IMerchant> => {
+const get = (): Promise<void | IData> => {
   return fetch('https://panjs.com/ywc18.json').then((result) => {
     result.json().then((data) => {
       return data
