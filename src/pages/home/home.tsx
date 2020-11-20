@@ -15,7 +15,7 @@ export const Home = () => {
 
   const [data, setData] = useState<IData>()
   const [isMarkerClicked, setIsMarkerClicked] = useState(false)
-  const [location, setLocation] = useState('nearby')
+  const [location, ] = useState('nearby')
   const [search, setSearch] = useState('')
 
   const query = getQuery()
@@ -69,7 +69,7 @@ export const Home = () => {
     <div className="home">
       <Navbar />
       <div className="header-cover">
-        <img src={coverImage} />
+        <img src={coverImage} alt="Cover" />
         <div className="container">
           <div className="title">ค้นหาร้านค้าที่เข้าร่วมโครงการ คนละครึ่ง</div>
           <div className="search-container">
@@ -82,7 +82,7 @@ export const Home = () => {
         <div className="grid-container">
           { mainCategories.map(({ src, label, name }) => (
             <div key={label} onClick={() => {setCategoryCallback(name)}} className="grid-item">
-              <img src={src} />
+              <img src={src} alt={label} />
               <div className="label">{label}</div>
             </div>
           ))}

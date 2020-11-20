@@ -1,5 +1,4 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
 import { useScreen } from '../../utils'
 import './breadcrumb.scss'
 

@@ -17,7 +17,7 @@ export const Shop = () => {
 
   const [merchant, setMerchant] = useState<IMerchant>()
   const [merchantCategory, setMerchantCategory] = useState('')
-  const [location, setLocation] = useState(query.location as string ?? 'nearby')
+  const [location, ] = useState(query.location as string ?? 'nearby')
   const [search, setSearch] = useState(query.search as string)
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export const Shop = () => {
       setMerchant(resultMerchant)
       setMerchantCategory(category ?? 'all')
     })
-  }, [])
+  }, [id])
 
   const handleSearchCallback = useCallback(() => {
     const queryString = makeQuery(query)
@@ -67,7 +67,7 @@ export const Shop = () => {
     <>
       <div className="price-tag-container">
         <div className="icon">
-          <img src={priceTagImage} />
+          <img src={priceTagImage} alt="Icon"/>
         </div>
         <div>
           <div className="label">ช่วงราคา</div>
@@ -96,7 +96,7 @@ export const Shop = () => {
         <div className="shop">
           <Breadcrumb links={breadcrumbLinks!} /> 
           <div className="cover-header">
-            <img src={merchant.coverImageId} />
+            <img src={merchant.coverImageId} alt="Cover" />
             <div className="title-container">
               <div className="title"><span>{merchant.shopNameTH}{openTag(merchant.isOpen)}</span></div>
               <div className="subtitle-container">
