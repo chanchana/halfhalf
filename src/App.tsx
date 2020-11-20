@@ -1,13 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { HashRouter, Route, Switch, useParams } from 'react-router-dom'
 import { Search } from './pages'
 
+const ShopDetail = () => {
+  const { id }: any = useParams()
+
+  return (
+    <p>{id}</p>
+  )
+}
+
 const App = () => (
-  <Router> 
+  <HashRouter basename={process.env.PUBLIC_URL}>
     <Switch>
       <Route exact path="/search" component={Search} />
+      <Route exact path="/shop/:id" component={ShopDetail} />
     </Switch>
-  </Router>
+  </HashRouter>
 )
 
 export default App

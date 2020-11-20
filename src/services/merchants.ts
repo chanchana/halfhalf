@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export interface IMerchant {
   shopNameTH: string
   filterCategoryName?: string
@@ -242,13 +244,14 @@ const testFetch = {
 }
 
 const get = (): Promise<void | IData> => {
-  return fetch('https://panjs.com/ywc18.json').then((result) => {
-    result.json().then((data) => {
-      return data
-    }).catch((error) => {
-      throw(error)
-    })
+  return axios.get('https://panjs.com/ywc18.json', {
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
+  }).then((result) => {
+    return result.data
   }).catch((error) => {
+    console.log(error)
     return testFetch
   })
 }

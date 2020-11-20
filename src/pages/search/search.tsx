@@ -30,7 +30,7 @@ export const Search = () => {
   useEffect(() => {
     const filterQuery = { category, location, priceLevel, priceStart, priceTo, subCategory, search }
     const queryString = makeQuery(filterQuery)
-    window.history.pushState({}, '', `/search?${queryString}`)
+    window.history.pushState({}, '', `#/search?${queryString}`)
     if (data) {
       setMerchants(filter(filterQuery, data!))
     }
